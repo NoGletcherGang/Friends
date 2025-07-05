@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Initial commit")
+        Text("Dev setup")
     }
 }
 
