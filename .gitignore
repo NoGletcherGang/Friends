@@ -1,70 +1,8 @@
-# Xcode
-
-## Build generated
-build/
-DerivedData/
-
-## Various settings
-*.pbxuser
-!default.pbxuser
-*.mode1v3
-!default.mode1v3
-*.mode2v3
-!default.mode2v3
-*.perspectivev3
-!default.perspectivev3
-
-## User-specific files
-*.xcuserdatad
-
-## Other
-*.moved-aside
-*.xccheckout
-*.xcscmblueprint
-
-## Crash logs and other files
-*.dSYM.zip
-*.dSYM
-*.app.dSYM
-
-## Package Manager
-.build/
-
-# Swift Package Manager specific
-# .swiftpm/
-
-# CocoaPods
-# Pods/
-# Podfile.lock
-
-# Carthage
-# Carthage/
-
-# fastlane
-fastlane/.env
-fastlane/.env.secret
-fastlane/report.xml
-fastlane/screenshots
-fastlane/README.md
-fastlane/Preview.html
-fastlane/test_output
-fastlane/provisions
-
-# Code Injection
-# iOSInjectionProject/
-
-# macOS system files
-.DS_Store
-*.DS_Store
-**/.DS_Store
-**/*.DS_Store
-
-._*
-.Spotlight-V100
-.Trashes
-
-# Workspace specific
-*.xcworkspace
-*.xcodeproj
+# В .gitignore оставь:
 *.xcuserstate
-**/Derived/
+**/xcuserdata/
+*.xcworkspace/contents.xcworkspacedata
+
+# Но отслеживай:
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
