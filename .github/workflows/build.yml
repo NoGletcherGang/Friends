@@ -1,0 +1,9 @@
+name: Build
+on: push
+jobs:
+  build:
+    runs-on: macos-15-large
+    steps:
+      - name: Show available Xcode versions
+        run: ls /Applications | grep Xcode
+  
