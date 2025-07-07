@@ -13,7 +13,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           path: .
-
+      - name: Show directory contents
+        run: |
+            pwd
+            ls -la
       - name: Set Default Scheme
         run: |
           scheme_list=$(xcodebuild -list -json | tr -d "\n")
