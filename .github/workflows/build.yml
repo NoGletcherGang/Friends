@@ -6,7 +6,6 @@ on:
 
 jobs:
   build:
-    name: Build and analyze default scheme using xcodebuild
     runs-on: macos-latest
 
     steps:
