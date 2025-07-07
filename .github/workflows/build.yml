@@ -1,32 +1,23 @@
-name: Xcode - Build and Analyze
+name: BuildProject
 
 on:
   push:
-  pull_request:
 
 jobs:
   build:
     runs-on: macos-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          path: .
-      - name: Set Default Scheme
-        working-directory: Friends
-        run: |
-          scheme_list=$(xcodebuild -list -json | tr -d "\n")
-          default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]")
-          echo $default | cat >default
-          echo Using default scheme: $default
 
-      - name: Build project
-        working-directory: Friends
-        env:
-          scheme: ${{ 'default' }}
+      - name: Select Xcode version
+        run: sudo xcode-select -s /Applications/Xcode_16.2.app
+
+      - name: Build the app (SPM)
         run: |
-            if [ $scheme = default ]; then scheme=$(cat default); fi
-            if [ "`ls -A | grep -i \\.xcworkspace\$`" ]; then filetype_parameter="workspace" && file_to_build="`ls -A | grep -i \\.xcworkspace\$`"; else filetype_parameter="project" && file_to_build="`ls -A | grep -i \\.xcodeproj\$`"; fi
-            file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
-            xcodebuild clean build analyze -scheme "$scheme" -"$filetype_parameter" "$file_to_build" | xcpretty && exit ${PIPESTATUS[0]}
+          xcodebuild clean build \
+            -scheme Friends \
+            -project Friends/Friends.xcodeproj \
+            -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2' \
+            ONLY_ACTIVE_ARCH=NO CODE_SIGNING_ALLOWED=NO
