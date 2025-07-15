@@ -1,6 +1,5 @@
 import SwiftUI
 
-// TODO: Doc
 
 enum RegistrationSteps: Int {
     case begin
