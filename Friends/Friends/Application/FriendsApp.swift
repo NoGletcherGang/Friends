@@ -5,7 +5,7 @@ import ComposableArchitecture
 struct FriendsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RegistrationView()
         }
     }
 }
