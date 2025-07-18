@@ -1,4 +1,5 @@
 import SwiftUI
+import ComposableArchitecture
 
 @main
 struct FriendsApp: App {
